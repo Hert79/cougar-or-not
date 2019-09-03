@@ -47,7 +47,7 @@ cat_data = ImageDataBunch.from_name_re(
     ds_tfms=get_transforms(),
     size=224,
 )
-cat_learner = ConvLearner(cat_data, models.resnet34)
+cat_learner = create_cnn(cat_data, models.resnet34)
 cat_learner.model.load_state_dict(
     torch.load("usa-inaturalist-cats.pth", map_location="cpu")
 )
